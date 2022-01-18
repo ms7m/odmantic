@@ -8,6 +8,7 @@ RUN apt-get update \
   && apt-get autoremove -y \
   && rm -rf /var/lib/apt/lists/* \
   && rm -f /var/cache/apt/archives/*.deb
+  && apt install python-is-python3
 
 # Install task
 RUN curl -sL https://taskfile.dev/install.sh | sh

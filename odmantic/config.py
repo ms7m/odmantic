@@ -1,7 +1,7 @@
 import json
 from typing import Any, Callable, Dict, Optional, Type, Union
 
-from pydantic.main import BaseConfig, SchemaExtraCallable
+from pydantic.config import BaseConfig, SchemaExtraCallable
 from pydantic.typing import AnyCallable
 
 from odmantic.bson import BSON_TYPES_ENCODERS
@@ -23,6 +23,7 @@ class BaseODMConfig:
     anystr_strip_whitespace: bool = False
     json_loads: Callable[[str], Any] = json.loads
     json_dumps: Callable[..., str] = json.dumps
+    arbitrary_types_allowed = True
 
 
 ALLOWED_CONFIG_OPTIONS = {name for name in dir(BaseODMConfig) if not is_dunder(name)}
